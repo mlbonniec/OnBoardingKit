@@ -28,7 +28,7 @@ public struct OnBoardingView: View {
 
             Spacer()
 
-            VStack(spacing: 32) {
+            VStack(spacing: Constants.Spacings.xlarge) {
               ForEach(onBoarding.features) { feature in
                 OnBoardingFeatureView(
                   image: feature.image,
@@ -40,7 +40,8 @@ public struct OnBoardingView: View {
 
             Spacer()
           }
-          .padding(Constants.Spacings.large)
+          .padding(.horizontal, Constants.Spacings.large)
+          .padding(.top, Constants.Spacings.xlarge)
           .padding(.bottom, buttonsHeight)
           .frame(minHeight: proxy.size.height)
         }
