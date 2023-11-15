@@ -30,6 +30,7 @@ struct OnBoardingHeaderView: View {
         .multilineTextAlignment(.center)
         .foregroundStyle(.gray)
     }
+    .frame(maxWidth: .infinity)
   }
 }
 
