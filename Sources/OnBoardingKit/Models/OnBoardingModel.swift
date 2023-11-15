@@ -12,21 +12,21 @@ public enum OnBoardingKit {
   public struct Feature: Identifiable {
     public var id: UUID { UUID() }
 
-    public var image: Image?
+    public var image: Image? = nil
 
-    public var label: Text?
+    public var label: Text? = nil
 
     public var description: Text
   }
 
   public struct Notice {
-    public var icon: Image?
+    public var icon: Image? = nil
 
     public var text: Text
 
-    public var linkTitle: Text?
+    public var linkTitle: Text? = nil
 
-    public var link: String?
+    public var link: String? = nil
   }
 }
 
@@ -42,8 +42,11 @@ public protocol OnBoarding {
   var notice: Notice? { get }
 
   var button: Text { get }
+}
 
+public extension OnBoarding {
   typealias Feature = OnBoardingKit.Feature
+
   typealias Notice = OnBoardingKit.Notice
 }
 
