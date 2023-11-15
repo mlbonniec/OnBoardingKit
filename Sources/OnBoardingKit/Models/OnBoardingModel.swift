@@ -12,11 +12,17 @@ public enum OnBoardingKit {
   public struct Feature: Identifiable {
     public var id: UUID { UUID() }
 
-    public var image: Image? = nil
+    public var image: Image?
 
-    public var label: Text? = nil
+    public var label: Text?
 
     public var description: Text
+
+    public init(image: Image? = nil, label: Text? = nil, description: Text) {
+      self.image = image
+      self.label = label
+      self.description = description
+    }
   }
 
   public struct Notice {
@@ -27,6 +33,13 @@ public enum OnBoardingKit {
     public var linkTitle: Text? = nil
 
     public var link: String? = nil
+
+    init(icon: Image? = nil, text: Text, linkTitle: Text? = nil, link: String? = nil) {
+      self.icon = icon
+      self.text = text
+      self.linkTitle = linkTitle
+      self.link = link
+    }
   }
 }
 
