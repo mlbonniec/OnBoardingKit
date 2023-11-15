@@ -16,6 +16,7 @@ struct OnBoardingHeaderView: View {
     VStack(alignment: .center, spacing: Constants.Spacings.medium) {
       image?
         .resizable()
+        .aspectRatio(contentMode: .fit)
         .frame(width: 75, height: 75)
 
       title
