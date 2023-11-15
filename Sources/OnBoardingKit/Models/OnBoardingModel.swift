@@ -47,14 +47,10 @@ public protocol OnBoarding {
   typealias Notice = OnBoardingKit.Notice
 }
 
-extension OnBoarding {
+public extension OnBoarding {
   var image: Image? { nil }
 
   var description: Text? { nil }
 
   var notice: Notice? { nil }
-
-  var button: Text {
-    Text("Continue")
-  }
 }
