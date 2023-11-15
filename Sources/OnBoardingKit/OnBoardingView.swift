@@ -1,18 +1,17 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
-
 import SwiftUI
 
 public struct OnBoardingView: View {
   // MARK: Properties
   private let onBoarding: OnBoarding
+  private let action: () -> Void
 
   // MARK: Reactive Properties
   @State private var buttonsHeight: CGFloat = .zero
 
   // MARK: Lifecycle
-  public init(_ onBoarding: OnBoarding) {
+  public init(_ onBoarding: OnBoarding, action: @escaping () -> Void) {
     self.onBoarding = onBoarding
+    self.action = action
   }
 
   // MARK: Body
@@ -62,8 +61,10 @@ public struct OnBoardingView: View {
             )
           }
 
-          Button("Continue") {}
-            .buttonStyle(.large)
+          Button(action: action, label: {
+            onBoarding.button
+          })
+          .buttonStyle(.large)
         }
         .padding(Constants.Spacings.large)
         .background(
@@ -134,7 +135,7 @@ public struct OnBoardingView: View {
 
   return Text("Preview Sheet")
     .sheet(isPresented: .constant(true)) {
-      OnBoardingView(ScrollViewOnBoarding())
+      OnBoardingView(ScrollViewOnBoarding()) {}
         .interactiveDismissDisabled()
     }
 }
