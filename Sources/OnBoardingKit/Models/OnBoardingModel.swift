@@ -8,29 +8,29 @@
 import SwiftUI
 import TipKit
 
-enum OnBoardingKit {
-  struct Feature: Identifiable {
-    var id: UUID { UUID() }
+public enum OnBoardingKit {
+  public struct Feature: Identifiable {
+    public var id: UUID { UUID() }
 
-    var image: Image?
+    public var image: Image?
 
-    var label: Text?
+    public var label: Text?
 
-    var description: Text
+    public var description: Text
   }
 
-  struct Notice {
-    var icon: Image?
+  public struct Notice {
+    public var icon: Image?
 
-    var text: Text
+    public var text: Text
 
-    var linkTitle: Text?
+    public var linkTitle: Text?
 
-    var link: String?
+    public var link: String?
   }
 }
 
-protocol OnBoarding {
+public protocol OnBoarding {
   var image: Image? { get }
 
   var title: Text { get }
