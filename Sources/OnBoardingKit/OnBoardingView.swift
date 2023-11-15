@@ -126,6 +126,10 @@ public struct OnBoardingView: View {
         link: "https://mathislebonniec.fr"
       )
     }
+
+    var button: Text {
+      Text("Continue")
+    }
   }
 
   return Text("Preview Sheet")
