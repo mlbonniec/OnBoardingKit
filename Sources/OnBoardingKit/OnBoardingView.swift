@@ -25,6 +25,7 @@ public struct OnBoardingView: View {
               title: onBoarding.title,
               description: onBoarding.description
             )
+            .fixedSize(horizontal: false, vertical: true)
 
             Spacer()
 
