@@ -7,6 +7,7 @@ public struct OnBoardingView: View {
 
   // MARK: Reactive Properties
   @State private var buttonsHeight: CGFloat = .zero
+  @State private var isVisible: Bool = false
 
   // MARK: Lifecycle
   public init(_ onBoarding: OnBoarding, action: @escaping () -> Void) {
@@ -29,12 +30,14 @@ public struct OnBoardingView: View {
             Spacer()
 
             VStack(spacing: Constants.Spacings.xlarge) {
-              ForEach(onBoarding.features) { feature in
+              ForEach(Array(onBoarding.features.enumerated()), id: \.offset) { index, feature in
                 OnBoardingFeatureView(
                   image: feature.image,
                   label: feature.label,
                   description: feature.description
                 )
+                .reveal(visible: isVisible, delay: 0.13 * Double(index))
+                // .background(index % 2 == 0 ? .blue : .red)
               }
             }
 
@@ -50,7 +53,6 @@ public struct OnBoardingView: View {
 
       VStack {
         Spacer(minLength: 0)
-
 
         VStack(spacing: Constants.Spacings.large) {
           if let notice = onBoarding.notice {
@@ -78,6 +80,13 @@ public struct OnBoardingView: View {
         )
       }
     }
+    .onAppear {
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.834) {
+        withAnimation(.easeIn) {
+          self.isVisible = true
+        }
+      }
+    }
   }
 }
 
@@ -92,6 +101,7 @@ public struct OnBoardingView: View {
     }
 
     var description: Text? {
+      return nil
       Text("iPhone uses on-device intelligence to create journaling suggestions based on your everyday moments.")
     }
 
@@ -121,6 +131,7 @@ public struct OnBoardingView: View {
     }
 
     var notice: Notice? {
+      return nil
       Notice(
         icon: Image(systemName: "person.2.fill"),
         text: Text("Developed and designed for members of the Swiss Armed Forces."),
@@ -134,6 +145,7 @@ public struct OnBoardingView: View {
     }
   }
 
+  // return OnBoardingView(ScrollViewOnBoarding()) {}
   return Text("Preview Sheet")
     .sheet(isPresented: .constant(true)) {
       OnBoardingView(ScrollViewOnBoarding()) {}
