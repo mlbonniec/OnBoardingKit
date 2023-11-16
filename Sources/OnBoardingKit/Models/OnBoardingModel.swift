@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import TipKit
 
 public enum OnBoardingKit {
   public struct Feature: Identifiable {
