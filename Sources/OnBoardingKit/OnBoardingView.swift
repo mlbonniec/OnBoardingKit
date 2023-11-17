@@ -83,48 +83,52 @@ public struct OnBoardingView: View {
   struct ScrollViewOnBoarding: OnBoarding {
     var image: Image? {
       Image(systemName: "app.fill")
-      Image(systemName: "square.and.arrow.up.fill")
     }
 
     var title: Text {
-      Text("Journaling\nSuggestions")
+      Text("Get into\nOnBoardingKit")
     }
 
     var description: Text? {
-      Text("iPhone uses on-device intelligence to create journaling suggestions based on your everyday moments.")
+      Text("Apple TipKit like architecture OnBoarding view Swift Package.")
     }
 
     var features: [Feature] {
       [
         Feature(
-          image: .init(systemName: "hand.raised.fill"),
-          label: .init("Get Inspired"),
-          description: .init("Summaries can help you reflect on topics you might want to write about, such as places you go and photos you take.")
+          image: Image(systemName: "gear"),
+          label: Text("Configurable"),
+          description: Text("Every element in the view can be configured. You can hide labels, text, images depending on your needs")
         ),
         Feature(
-          image: .init(systemName: "lightbulb.max.fill"),
-          label: .init("Suggestions Are Private"),
-          description: .init("Suggestions only appear if you write about them or save them to your journal.")
+          image: Image(systemName: "apple.logo"),
+          label: Text("Apple Like"),
+          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
         ),
         Feature(
-          image: .init(systemName: "lightbulb.max.fill"),
-          label: .init("Suggestions Are Private"),
-          description: .init("Suggestions only appear if you write about them or save them to your journal.")
+          image: Image(systemName: "apple.logo"),
+          label: Text("Apple Like"),
+          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
         ),
         Feature(
-          image: .init(systemName: "lightbulb.max.fill"),
-          label: .init("Suggestions Are Private"),
-          description: .init("Suggestions only appear if you write about them or save them to your journal.")
+          image: Image(systemName: "apple.logo"),
+          label: Text("Apple Like"),
+          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
+        ),
+        Feature(
+          image: Image(systemName: "apple.logo"),
+          label: Text("Apple Like"),
+          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
         )
       ]
     }
 
     var notice: Notice? {
       Notice(
-        icon: Image(systemName: "person.2.fill"),
-        text: Text("Developed and designed for members of the Swiss Armed Forces."),
+        icon: Image(systemName: "desktopcomputer"),
+        text: Text("This project is open-source, and you can contribute to it."),
         linkTitle: Text("Learn more..."),
-        link: "https://mathislebonniec.fr"
+        link: "https://github.com/mlbonniec/OnBoardingKit"
       )
     }
 
