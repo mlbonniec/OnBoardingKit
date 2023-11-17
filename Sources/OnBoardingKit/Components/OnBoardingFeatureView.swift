@@ -33,6 +33,7 @@ struct OnBoardingFeatureView: View {
       Spacer(minLength: 0)
     }
     .frame(maxWidth: .infinity)
+    .fixedSize(horizontal: false, vertical: true)
   }
 }
 

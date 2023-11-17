@@ -32,6 +32,7 @@ struct OnBoardingHeaderView: View {
         .foregroundStyle(.gray)
     }
     .frame(maxWidth: .infinity)
+    .fixedSize(horizontal: false, vertical: true)
   }
 }
 

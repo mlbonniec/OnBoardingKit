@@ -25,7 +25,6 @@ public struct OnBoardingView: View {
               title: onBoarding.title,
               description: onBoarding.description
             )
-            .fixedSize(horizontal: false, vertical: true)
 
             Spacer()
 
@@ -141,6 +140,5 @@ public struct OnBoardingView: View {
     .sheet(isPresented: .constant(true)) {
       OnBoardingView(ScrollViewOnBoarding()) {}
         .interactiveDismissDisabled()
-        // .tint(.orange)
     }
 }
