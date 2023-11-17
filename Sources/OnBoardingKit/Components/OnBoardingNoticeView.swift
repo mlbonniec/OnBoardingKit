@@ -22,7 +22,7 @@ struct OnBoardingNoticeView: View {
         .aspectRatio(contentMode: .fit)
         .frame(width: 32, height: 32)
         .clipped()
-        .foregroundStyle(Color.accentColor)
+        .foregroundStyle(.tint)
 
       text
         .foregroundStyle(.gray)

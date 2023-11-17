@@ -18,6 +18,7 @@ struct OnBoardingHeaderView: View {
         .resizable()
         .aspectRatio(contentMode: .fit)
         .frame(width: 75, height: 75)
+        .foregroundStyle(.tint)
 
       title
         .font(.largeTitle)

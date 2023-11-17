@@ -18,7 +18,7 @@ struct OnBoardingFeatureView: View {
         .resizable()
         .aspectRatio(contentMode: .fit)
         .frame(width: 35, height: 35)
-        .foregroundStyle(Color.accentColor)
+        .foregroundStyle(.tint)
 
       VStack(alignment: .leading, spacing: 3) {
         label?

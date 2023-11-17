@@ -12,7 +12,7 @@ struct LargeButtonStyle: ButtonStyle {
     configuration.label
       .frame(maxWidth: .infinity)
       .frame(height: 50)
-      .background(Color.accentColor)
+      .background(.tint)
       .clipShape(RoundedRectangle(cornerRadius: 15))
       .font(.headline)
       .foregroundStyle(.white)

@@ -85,7 +85,8 @@ public struct OnBoardingView: View {
 #Preview {
   struct ScrollViewOnBoarding: OnBoarding {
     var image: Image? {
-      Image(.shortcuts)
+      // Image(.shortcuts)
+      Image(systemName: "square.and.arrow.up.fill")
     }
 
     var title: Text {
@@ -139,5 +140,6 @@ public struct OnBoardingView: View {
     .sheet(isPresented: .constant(true)) {
       OnBoardingView(ScrollViewOnBoarding()) {}
         .interactiveDismissDisabled()
+        // .tint(.orange)
     }
 }
