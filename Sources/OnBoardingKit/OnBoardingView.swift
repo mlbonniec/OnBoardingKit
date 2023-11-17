@@ -63,10 +63,7 @@ public struct OnBoardingView: View {
             )
           }
 
-          Button(action: action, label: {
-            onBoarding.button
-          })
-          .buttonStyle(.large)
+          OnBoardingButtonView(label: onBoarding.button, action: action)
         }
         .padding(Constants.Spacings.large)
         .background(
