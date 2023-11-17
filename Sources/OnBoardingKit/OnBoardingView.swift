@@ -46,12 +46,12 @@ public struct OnBoardingView: View {
           .padding(.bottom, buttonsHeight)
           .frame(minHeight: proxy.size.height)
         }
+        .scrollBounceBehavior(.basedOnSize, axes: .vertical)
       }
       .frame(maxWidth: .infinity)
 
       VStack {
         Spacer(minLength: 0)
-
 
         VStack(spacing: Constants.Spacings.large) {
           if let notice = onBoarding.notice {
