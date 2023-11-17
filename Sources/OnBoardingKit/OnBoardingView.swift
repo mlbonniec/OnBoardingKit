@@ -85,7 +85,7 @@ public struct OnBoardingView: View {
 #Preview {
   struct ScrollViewOnBoarding: OnBoarding {
     var image: Image? {
-      // Image(.shortcuts)
+      Image(systemName: "app.fill")
       Image(systemName: "square.and.arrow.up.fill")
     }
 
