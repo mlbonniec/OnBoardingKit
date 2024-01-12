@@ -85,8 +85,8 @@ public struct OnBoardingView: View {
 
 #Preview {
   struct ScrollViewOnBoarding: OnBoarding {
-    var image: Image? {
-      Image(systemName: "app.fill")
+    var image: ImageStyle? {
+      .icon(Image(systemName: "app.fill"))
     }
 
     var title: Text {
@@ -100,29 +100,19 @@ public struct OnBoardingView: View {
     var features: [Feature] {
       [
         Feature(
+          image: Image(systemName: "apple.logo"),
+          label: Text("Apple Like"),
+          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
+        ),
+        Feature(
           image: Image(systemName: "gear"),
           label: Text("Configurable"),
           description: Text("Every element in the view can be configured. You can hide labels, text, images depending on your needs")
         ),
         Feature(
-          image: Image(systemName: "apple.logo"),
-          label: Text("Apple Like"),
-          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
-        ),
-        Feature(
-          image: Image(systemName: "apple.logo"),
-          label: Text("Apple Like"),
-          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
-        ),
-        Feature(
-          image: Image(systemName: "apple.logo"),
-          label: Text("Apple Like"),
-          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
-        ),
-        Feature(
-          image: Image(systemName: "apple.logo"),
-          label: Text("Apple Like"),
-          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
+          image: Image(systemName: "lightbulb.fill"),
+          label: Text("TipKit architecture like"),
+          description: Text("The project architecture is inspired by the Apple TipKit library.")
         )
       ]
     }
