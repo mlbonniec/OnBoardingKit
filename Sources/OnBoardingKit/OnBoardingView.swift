@@ -5,6 +5,13 @@ public struct OnBoardingView: View {
   private let onBoarding: OnBoarding
   private let action: () -> Void
 
+  private var isBannerStyle: Bool {
+    if case .banner = self.onBoarding.image {
+      return true
+    }
+    return false
+  }
+
   // MARK: Reactive Properties
   @State private var buttonsHeight: CGFloat = .zero
 
@@ -19,14 +26,13 @@ public struct OnBoardingView: View {
     ZStack {
       GeometryReader { proxy in
         ScrollView {
-          VStack(spacing: Constants.Spacings.medium) {
+          VStack(spacing: Constants.Spacings.xxlarge) {
             OnBoardingHeaderView(
               image: onBoarding.image,
               title: onBoarding.title,
               description: onBoarding.description
             )
-
-            Spacer()
+            .padding(.top, isBannerStyle ? -proxy.safeAreaInsets.top : Constants.Spacings.xlarge)
 
             VStack(spacing: Constants.Spacings.xlarge) {
               ForEach(onBoarding.features) { feature in
@@ -37,11 +43,10 @@ public struct OnBoardingView: View {
                 )
               }
             }
+            .padding(.horizontal, Constants.Spacings.large)
 
             Spacer()
           }
-          .padding(.horizontal, Constants.Spacings.large)
-          .padding(.top, Constants.Spacings.xlarge)
           .padding(.bottom, buttonsHeight)
           .frame(minHeight: proxy.size.height)
         }
@@ -132,13 +137,9 @@ public struct OnBoardingView: View {
     }
 
     var button: Text {
-      Text("Continue")
+      Text("Continuer")
     }
   }
 
-  return Text("Preview Sheet")
-    .sheet(isPresented: .constant(true)) {
-      OnBoardingView(ScrollViewOnBoarding()) {}
-        .interactiveDismissDisabled()
-    }
+  return OnBoardingView(ScrollViewOnBoarding()) {}
 }

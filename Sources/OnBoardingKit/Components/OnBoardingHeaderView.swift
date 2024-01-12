@@ -8,17 +8,29 @@
 import SwiftUI
 
 struct OnBoardingHeaderView: View {
-  var image: Image?
+  var image: OnBoardingKit.ImageStyle?
   var title: Text
   var description: Text?
 
+  @State private var isAnimating = false
+
   var body: some View {
-    VStack(alignment: .center, spacing: Constants.Spacings.medium) {
-      image?
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-        .frame(width: 75, height: 75)
-        .foregroundStyle(.tint)
+    VStack(alignment: .center, spacing: Constants.Spacings.large) {
+      switch image {
+      case .icon(let icon):
+        icon
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 75, height: 75)
+
+      case .banner(let banner, let ratio):
+        banner
+          .resizable()
+          .aspectRatio(ratio, contentMode: .fit)
+
+      default:
+        EmptyView()
+      }
 
       title
         .font(.largeTitle)
@@ -42,16 +54,24 @@ struct OnBoardingHeaderView: View {
   )
 }
 
-#Preview("Image + Title") {
+#Preview("Image Icon + Title") {
   OnBoardingHeaderView(
-    image: Image(systemName: "square.fill"),
+    image: .icon(Image(systemName: "square.fill")),
     title: Text("First steps\nwith OnBoarding")
   )
 }
 
-#Preview("Image + Title + Description") {
+#Preview("Image Icon + Title + Description") {
   OnBoardingHeaderView(
-    image: Image(systemName: "square.fill"),
+    image: .icon(Image(systemName: "square.fill")),
+    title: Text("First steps\nwith OnBoarding"),
+    description: Text("Discover how to use this awesome Apple like on boarding view library")
+  )
+}
+
+#Preview("Image Banner + Title + Description") {
+  OnBoardingHeaderView(
+    image: .banner(Image(.banner)),
     title: Text("First steps\nwith OnBoarding"),
     description: Text("Discover how to use this awesome Apple like on boarding view library")
   )
