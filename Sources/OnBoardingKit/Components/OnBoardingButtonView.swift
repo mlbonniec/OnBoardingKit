@@ -25,4 +25,5 @@ struct OnBoardingButtonView: View {
 
 #Preview {
   OnBoardingButtonView(label: Text("Continue")) {}
+    .padding()
 }

@@ -40,10 +40,14 @@ public enum OnBoardingKit {
       self.link = link
     }
   }
+
+  public enum ImageStyle {
+    case icon(Image), banner(Image, CGFloat? = 1.1)
+  }
 }
 
 public protocol OnBoarding {
-  var image: Image? { get }
+  var image: ImageStyle? { get }
 
   var title: Text { get }
 
@@ -60,10 +64,12 @@ public extension OnBoarding {
   typealias Feature = OnBoardingKit.Feature
 
   typealias Notice = OnBoardingKit.Notice
+
+  typealias ImageStyle = OnBoardingKit.ImageStyle
 }
 
 public extension OnBoarding {
-  var image: Image? { nil }
+  var image: ImageStyle? { nil }
 
   var description: Text? { nil }
 
