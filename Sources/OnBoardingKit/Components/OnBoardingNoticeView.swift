@@ -12,7 +12,7 @@ struct OnBoardingNoticeView: View {
   var icon: Image?
   var text: Text
   var linkTitle: Text?
-  var link: String?
+  var link: URL?
 
   // MARK: Body
   var body: some View {
@@ -27,8 +27,8 @@ struct OnBoardingNoticeView: View {
       text
         .foregroundStyle(.gray)
 
-      if let link, let url = URL(string: link) {
-        Link(destination: url) {
+      if let link {
+        Link(destination: link) {
           linkTitle
         }
       }
@@ -44,7 +44,7 @@ struct OnBoardingNoticeView: View {
     icon: Image(systemName: "person.2.fill"),
     text: Text("Developed and designed for members of the Swiss Armed Forces."),
     linkTitle: Text("Learn more..."),
-    link: "https://mathislebonniec.fr"
+    link: URL(string: "https://mathislebonniec.fr")
   )
   .padding()
 }

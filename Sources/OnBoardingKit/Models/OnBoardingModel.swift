@@ -31,9 +31,9 @@ public enum OnBoardingKit {
 
     public var linkTitle: Text? = nil
 
-    public var link: String? = nil
+    public var link: URL? = nil
 
-    public init(icon: Image? = nil, text: Text, linkTitle: Text? = nil, link: String? = nil) {
+    public init(icon: Image? = nil, text: Text, linkTitle: Text? = nil, link: URL? = nil) {
       self.icon = icon
       self.text = text
       self.linkTitle = linkTitle

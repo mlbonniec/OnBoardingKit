@@ -122,7 +122,7 @@ public struct OnBoardingView: View {
         icon: Image(systemName: "desktopcomputer"),
         text: Text("This project is open-source, and you can contribute to it."),
         linkTitle: Text("Learn more..."),
-        link: "https://github.com/mlbonniec/OnBoardingKit"
+        link: URL(string: "https://github.com/mlbonniec/OnBoardingKit")
       )
     }
 
