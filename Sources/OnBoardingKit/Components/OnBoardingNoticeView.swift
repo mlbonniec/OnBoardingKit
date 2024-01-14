@@ -11,8 +11,7 @@ struct OnBoardingNoticeView: View {
   // MARK: Properties
   var icon: Image?
   var text: Text
-  var linkTitle: Text?
-  var link: URL?
+  var link: OnBoardingKit.Notice.Link?
 
   // MARK: Body
   var body: some View {
@@ -27,9 +26,9 @@ struct OnBoardingNoticeView: View {
       text
         .foregroundStyle(.gray)
 
-      if let link, let linkTitle {
-        Link(destination: link) {
-          linkTitle
+      if let link, let url = link.url {
+        Link(destination: url) {
+          link.title
         }
       }
     }
@@ -43,8 +42,10 @@ struct OnBoardingNoticeView: View {
   OnBoardingNoticeView(
     icon: Image(systemName: "person.2.fill"),
     text: Text("Developed and designed for members of the Swiss Armed Forces."),
-    linkTitle: Text("Learn more..."),
-    link: URL(string: "https://mathislebonniec.fr")
+    link: OnBoardingKit.Notice.Link(
+      title: Text("Learn more..."),
+      url: URL(string: "https://mathislebonniec.fr")
+    )
   )
   .padding()
 }

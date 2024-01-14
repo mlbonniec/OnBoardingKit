@@ -29,15 +29,23 @@ public enum OnBoardingKit {
 
     public var text: Text
 
-    public var linkTitle: Text? = nil
+    public var link: Link? = nil
 
-    public var link: URL? = nil
-
-    public init(icon: Image? = nil, text: Text, linkTitle: Text? = nil, link: URL? = nil) {
+    public init(icon: Image? = nil, text: Text, link: Link? = nil) {
       self.icon = icon
       self.text = text
-      self.linkTitle = linkTitle
       self.link = link
+    }
+
+    public struct Link {
+      public var title: Text
+
+      public var url: URL?
+
+      public init(title: Text, url: URL?) {
+        self.title = title
+        self.url = url
+      }
     }
   }
 
@@ -66,6 +74,8 @@ public extension OnBoarding {
   typealias Notice = OnBoardingKit.Notice
 
   typealias ImageStyle = OnBoardingKit.ImageStyle
+
+  typealias Link = OnBoardingKit.Notice.Link
 }
 
 public extension OnBoarding {

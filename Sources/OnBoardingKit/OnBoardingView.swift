@@ -66,7 +66,6 @@ public struct OnBoardingView: View {
           OnBoardingNoticeView(
             icon: notice.icon,
             text: notice.text,
-            linkTitle: notice.linkTitle,
             link: notice.link
           )
         }
@@ -124,13 +123,15 @@ public struct OnBoardingView: View {
       Notice(
         icon: Image(systemName: "desktopcomputer"),
         text: Text("This project is open-source, and you can contribute to it."),
-        linkTitle: Text("Learn more..."),
-        link: URL(string: "https://github.com/mlbonniec/OnBoardingKit")
+        link: Link(
+          title: Text("Learn more..."),
+          url: URL(string: "https://github.com/mlbonniec/OnBoardingKit")
+        )
       )
     }
 
     var button: Text {
-      Text("Continuer")
+      Text("Continue")
     }
   }
 
