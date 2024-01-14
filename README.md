@@ -1,4 +1,6 @@
-![Cover](https://github.com/mlbonniec/OnBoardingKit/assets/29955402/cfeb845f-f2d9-478e-9b07-33de8f41eae2)
+![Cover](https://github.com/mlbonniec/OnBoardingKit/assets/29955402/60750e35-7536-4abb-82f2-83e8fc9fd28e)
+*These views are original Apple views, recreated using the library.*
+
 # OnBoardingKit
 
 OnBoardingKit is a configurable on boarding screen view for SwiftUI.
