@@ -48,37 +48,40 @@ public struct OnBoardingView: View {
             Spacer()
           }
           .padding(.bottom, buttonsHeight)
-          .frame(minHeight: proxy.size.height)
         }
         .scrollBounceBehavior(.basedOnSize, axes: .vertical)
       }
       .frame(maxWidth: .infinity)
 
-      VStack {
-        Spacer(minLength: 0)
+      footer
+    }
+  }
 
-        VStack(spacing: Constants.Spacings.large) {
-          if let notice = onBoarding.notice {
-            OnBoardingNoticeView(
-              icon: notice.icon,
-              text: notice.text,
-              linkTitle: notice.linkTitle,
-              link: notice.link
-            )
-          }
+  private var footer: some View {
+    VStack {
+      Spacer(minLength: 0)
 
-          OnBoardingButtonView(label: onBoarding.button, action: action)
+      VStack(spacing: Constants.Spacings.large) {
+        if let notice = onBoarding.notice {
+          OnBoardingNoticeView(
+            icon: notice.icon,
+            text: notice.text,
+            linkTitle: notice.linkTitle,
+            link: notice.link
+          )
         }
-        .padding(Constants.Spacings.large)
-        .background(
-          GeometryReader { proxy in
-            BlurView(style: .regular).onAppear {
-              buttonsHeight = proxy.size.height
-            }
-            .ignoresSafeArea()
-          }
-        )
+
+        OnBoardingButtonView(label: onBoarding.button, action: action)
       }
+      .padding(Constants.Spacings.large)
+      .background(
+        GeometryReader { proxy in
+          BlurView(style: .regular).onAppear {
+            buttonsHeight = proxy.size.height
+          }
+          .ignoresSafeArea()
+        }
+      )
     }
   }
 }
