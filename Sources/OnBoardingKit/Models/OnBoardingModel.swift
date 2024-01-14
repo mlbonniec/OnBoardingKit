@@ -73,5 +73,7 @@ public extension OnBoarding {
 
   var description: Text? { nil }
 
+  var features: [Feature] { [] }
+
   var notice: Notice? { nil }
 }
