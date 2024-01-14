@@ -90,7 +90,7 @@ public struct OnBoardingView: View {
     }
 
     var title: Text {
-      Text("Get into\nOnBoardingKit")
+      Text("Get into OnBoardingKit")
     }
 
     var description: Text? {
