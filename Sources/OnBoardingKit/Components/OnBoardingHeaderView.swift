@@ -32,16 +32,18 @@ struct OnBoardingHeaderView: View {
         EmptyView()
       }
 
-      title
-        .font(.largeTitle)
-        .bold()
-        .multilineTextAlignment(.center)
-        .fixedSize()
+      Group {
+        title
+          .font(.largeTitle)
+          .bold()
+          .fixedSize()
 
-      description?
-        .font(.callout)
-        .multilineTextAlignment(.center)
-        .foregroundStyle(.gray)
+        description?
+          .font(.callout)
+          .foregroundStyle(.gray)
+      }
+      .multilineTextAlignment(.center)
+      .padding(.horizontal, Constants.Spacings.large)
     }
     .frame(maxWidth: .infinity)
     .fixedSize(horizontal: false, vertical: true)
