@@ -36,7 +36,6 @@ struct OnBoardingHeaderView: View {
         title
           .font(.largeTitle)
           .bold()
-          .fixedSize()
 
         description?
           .font(.callout)
@@ -45,28 +44,26 @@ struct OnBoardingHeaderView: View {
       .multilineTextAlignment(.center)
       .padding(.horizontal, Constants.Spacings.large)
     }
-    .frame(maxWidth: .infinity)
-    .fixedSize(horizontal: false, vertical: true)
   }
 }
 
 #Preview("Title Only") {
   OnBoardingHeaderView(
-    title: Text("First steps\nwith OnBoarding")
+    title: Text("First steps with OnBoardingKit")
   )
 }
 
 #Preview("Image Icon + Title") {
   OnBoardingHeaderView(
     image: .icon(Image(systemName: "square.fill")),
-    title: Text("First steps\nwith OnBoarding")
+    title: Text("First steps with OnBoardingKit")
   )
 }
 
 #Preview("Image Icon + Title + Description") {
   OnBoardingHeaderView(
     image: .icon(Image(systemName: "square.fill")),
-    title: Text("First steps\nwith OnBoarding"),
+    title: Text("First steps with OnBoardingKit"),
     description: Text("Discover how to use this awesome Apple like on boarding view library")
   )
 }
@@ -74,7 +71,7 @@ struct OnBoardingHeaderView: View {
 #Preview("Image Banner + Title + Description") {
   OnBoardingHeaderView(
     image: .banner(Image(.banner)),
-    title: Text("First steps\nwith OnBoarding"),
+    title: Text("First steps with OnBoardingKit"),
     description: Text("Discover how to use this awesome Apple like on boarding view library")
   )
 }
