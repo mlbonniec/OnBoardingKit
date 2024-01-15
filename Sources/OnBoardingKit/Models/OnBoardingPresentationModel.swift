@@ -8,7 +8,7 @@
 import Foundation
 
 extension OnBoardingKit {
-  static func resetDatastore() {
+  public static func resetDatastore() {
     UserDefaults.standard.removeObject(forKey: OnBoardingAppStorage.hasOnBoardingBeenPresented.rawValue)
   }
 }
