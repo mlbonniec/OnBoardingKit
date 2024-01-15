@@ -39,7 +39,7 @@ public struct OnBoardingPresentation: ViewModifier {
 
   private var onBoardingView: OnBoardingView {
     OnBoardingView(onBoarding) {
-      hasBeenPresented = false
+      hasBeenPresented = true
       isPresented = false
       action()
     }
