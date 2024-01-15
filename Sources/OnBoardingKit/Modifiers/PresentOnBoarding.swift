@@ -1,5 +1,5 @@
 //
-//  View+PresentOnBoarding.swift
+//  PresentOnBoarding.swift
 //
 //
 //  Created by Mathis Le Bonniec on 15/01/2024.
@@ -18,7 +18,7 @@ public struct OnBoardingPresentation: ViewModifier {
 
   // MARK: Reactive Properties
   @State private var isPresented: Bool = false
-  @AppStorage(OnBoardingAppStorage.hasOnBoardingBeenPresented.rawValue) private var hasBeenPresented: Bool = true
+  @AppStorage(OnBoardingAppStorage.hasOnBoardingBeenPresented.rawValue) private var hasBeenPresented: Bool = false
 
   // MARK: Body
   public func body(content: Content) -> some View {
@@ -56,9 +56,9 @@ public struct OnBoardingPresentation: ViewModifier {
 
 extension View {
   public func presentOnBoarding(
-    onBoarding: OnBoarding,
+    _ onBoarding: OnBoarding,
     mode: OnBoardingPresentation.Mode = .fullscreen,
-    action: @escaping () -> Void
+    action: @escaping () -> Void = {}
   ) -> some View {
     self
       .modifier(OnBoardingPresentation(onBoarding: onBoarding, mode: mode, action: action))
