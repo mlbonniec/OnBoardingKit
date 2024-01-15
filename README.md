@@ -17,7 +17,8 @@ struct OnBoardingDemo: OnBoarding {
   // …
 }
 
-OnBoardingView(OnBoardingDemo())
+Text("Hello, World!")
+  .presentOnBoarding(OnBoardingDemo(), action: {})
 ```
 
 # Documentation
