@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum OnBoardingKit {
+extension OnBoardingKit {
   public struct Feature: Identifiable {
     public var id: UUID { UUID() }
 
