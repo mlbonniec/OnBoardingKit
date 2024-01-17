@@ -24,9 +24,14 @@ struct OnBoardingHeaderView: View {
           .frame(width: 75, height: 75)
 
       case .banner(let banner, let ratio):
-        banner
-          .resizable()
+        Color.clear
           .aspectRatio(ratio, contentMode: .fit)
+          .background(
+            banner
+              .resizable()
+              .scaledToFill()
+          )
+          .clipped()
 
       default:
         EmptyView()
@@ -73,5 +78,13 @@ struct OnBoardingHeaderView: View {
     image: .banner(Image(.banner)),
     title: Text("First steps with OnBoardingKit"),
     description: Text("Discover how to use this awesome Apple like on boarding view library")
+  )
+}
+
+
+#Preview("Image Banner with a big aspect-ratio") {
+  OnBoardingHeaderView(
+    image: .banner(Image(.banner), 3),
+    title: Text("First steps with OnBoardingKit")
   )
 }
