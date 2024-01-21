@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct OnBoardingHeaderView: View {
+  // MARK: Properties
   var image: OnBoardingKit.ImageStyle?
   var title: Text
   var description: Text?
 
-  @State private var isAnimating = false
+  // MARK: Reactive Properties
+  @State private var isAnimating: Bool
 
+  // MARK: Lifecycle
+  init(image: OnBoardingKit.ImageStyle? = nil, title: Text, description: Text? = nil, animate: Bool) {
+    self.image = image
+    self.title = title
+    self.description = description
+    self.isAnimating = !animate
+  }
+
+  // MARK: Body
   var body: some View {
     VStack(alignment: .center, spacing: Constants.Spacings.large) {
       switch image {
@@ -32,8 +43,7 @@ struct OnBoardingHeaderView: View {
               .scaledToFill()
           )
           .clipped()
-
-      default:
+      case .none:
         EmptyView()
       }
 
@@ -49,19 +59,28 @@ struct OnBoardingHeaderView: View {
       .multilineTextAlignment(.center)
       .padding(.horizontal, Constants.Spacings.large)
     }
+    .opacity(isAnimating ? 1 : 0)
+    .scaleEffect(isAnimating ? 1.0 : 0.5)
+    .onAppear {
+      withAnimation(.easeInOut(duration: 0.8)) {
+        isAnimating = true
+      }
+    }
   }
 }
 
 #Preview("Title Only") {
   OnBoardingHeaderView(
-    title: Text("First steps with OnBoardingKit")
+    title: Text("First steps with OnBoardingKit"),
+    animate: true
   )
 }
 
 #Preview("Image Icon + Title") {
   OnBoardingHeaderView(
     image: .icon(Image(systemName: "square.fill")),
-    title: Text("First steps with OnBoardingKit")
+    title: Text("First steps with OnBoardingKit"),
+    animate: true
   )
 }
 
@@ -69,7 +88,8 @@ struct OnBoardingHeaderView: View {
   OnBoardingHeaderView(
     image: .icon(Image(systemName: "square.fill")),
     title: Text("First steps with OnBoardingKit"),
-    description: Text("Discover how to use this awesome Apple like on boarding view library")
+    description: Text("Discover how to use this awesome Apple like on boarding view library"),
+    animate: true
   )
 }
 
@@ -77,7 +97,8 @@ struct OnBoardingHeaderView: View {
   OnBoardingHeaderView(
     image: .banner(Image(.banner)),
     title: Text("First steps with OnBoardingKit"),
-    description: Text("Discover how to use this awesome Apple like on boarding view library")
+    description: Text("Discover how to use this awesome Apple like on boarding view library"),
+    animate: true
   )
 }
 
@@ -85,6 +106,7 @@ struct OnBoardingHeaderView: View {
 #Preview("Image Banner with a big aspect-ratio") {
   OnBoardingHeaderView(
     image: .banner(Image(.banner), 3),
-    title: Text("First steps with OnBoardingKit")
+    title: Text("First steps with OnBoardingKit"),
+    animate: true
   )
 }

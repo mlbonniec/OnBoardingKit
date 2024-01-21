@@ -3,6 +3,7 @@ import SwiftUI
 public struct OnBoardingView: View {
   // MARK: Properties
   private let onBoarding: OnBoarding
+  private let animate: Bool
   private let action: () -> Void
 
   private var isBannerStyle: Bool {
@@ -13,12 +14,20 @@ public struct OnBoardingView: View {
   }
 
   // MARK: Reactive Properties
-  @State private var buttonsHeight: CGFloat = .zero
+  @State private var buttonsHeight: CGFloat
+  @State private var isAnimating: Bool
 
   // MARK: Lifecycle
-  public init(_ onBoarding: OnBoarding, action: @escaping () -> Void) {
+  public init(
+    _ onBoarding: OnBoarding,
+    animate: Bool = false,
+    action: @escaping () -> Void
+  ) {
     self.onBoarding = onBoarding
+    self.animate = animate
     self.action = action
+    self._isAnimating = State(initialValue: !animate)
+    self._buttonsHeight = State(initialValue: .zero)
   }
 
   // MARK: Body
@@ -30,19 +39,16 @@ public struct OnBoardingView: View {
             OnBoardingHeaderView(
               image: onBoarding.image,
               title: onBoarding.title,
-              description: onBoarding.description
+              description: onBoarding.description,
+              animate: animate
             )
             .padding(.top, isBannerStyle ? -proxy.safeAreaInsets.top : Constants.Spacings.xlarge)
+            .offset(y: isAnimating ? 0 : 200)
 
-            VStack(spacing: Constants.Spacings.xlarge) {
-              ForEach(onBoarding.features) { feature in
-                OnBoardingFeatureView(
-                  image: feature.image,
-                  label: feature.label,
-                  description: feature.description
-                )
-              }
-            }
+            OnBoardingFeaturesListView(
+              features: onBoarding.features,
+              animate: animate
+            )
             .padding(.horizontal, Constants.Spacings.large)
 
             Spacer()
@@ -54,6 +60,12 @@ public struct OnBoardingView: View {
       .frame(maxWidth: .infinity)
 
       footer
+        .opacity(isAnimating ? 1 : 0)
+    }
+    .onAppear {
+      withAnimation(.easeInOut(duration: 0.8).delay(1.4)) {
+        isAnimating = true
+      }
     }
   }
 
