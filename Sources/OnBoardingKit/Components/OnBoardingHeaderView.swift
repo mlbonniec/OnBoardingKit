@@ -59,6 +59,7 @@ struct OnBoardingHeaderView: View {
       .multilineTextAlignment(.center)
       .padding(.horizontal, Constants.Spacings.large)
     }
+    .frame(maxWidth: .infinity)
     .opacity(isAnimating ? 1 : 0)
     .scaleEffect(isAnimating ? 1.0 : 0.5)
     .onAppear {
