@@ -30,7 +30,7 @@ struct OnBoardingButtonView: View {
     .buttonStyle(.borderedProminent)
     .controlSize(controlSize)
     .buttonBorderShape(.roundedRectangle(radius: 15))
-    .fontWeight(.semibold)
+    .font(.system(size: 17, weight: .semibold))
   }
 }
 
