@@ -55,7 +55,7 @@ public struct OnBoardingView: View {
           }
           .padding(.bottom, buttonsHeight)
         }
-        .scrollBounceBehavior(.basedOnSize, axes: .vertical)
+        .scrollBounceBehavior(axes: .vertical)
       }
       .frame(maxWidth: .infinity)
 

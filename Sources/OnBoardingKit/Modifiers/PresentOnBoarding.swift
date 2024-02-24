@@ -52,7 +52,7 @@ public struct OnBoardingPresentation: ViewModifier {
           isPresented = true
         }
       }
-      .onChange(of: hasBeenPresented) {
+      .onChange(of: hasBeenPresented) { _ in
         if !hasBeenPresented {
           isPresented = true
         }
