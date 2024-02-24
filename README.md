@@ -8,6 +8,9 @@ It's inspired by on boarding views on Apple native apps, and [UIOnboarding](http
 
 OnBoardingKit behavior is inspired by the new [TipKit](https://developer.apple.com/documentation/tipkit) library from Apple.
 
+> [!NOTE]
+> OnBoardingKit is available on iOS 15 and later.
+
 # Quick Start
 To create an on boarding view, you simply have to create a struct conforming to the `OnBoarding` protocol.
 Then, it's very easy to display it with the `OnBoardingView`.
