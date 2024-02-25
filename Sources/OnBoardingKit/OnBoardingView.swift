@@ -14,7 +14,6 @@ public struct OnBoardingView: View {
   }
 
   // MARK: Reactive Properties
-  @State private var buttonsHeight: CGFloat
   @State private var isAnimating: Bool
 
   // MARK: Lifecycle
@@ -27,41 +26,37 @@ public struct OnBoardingView: View {
     self.animate = animate
     self.action = action
     self._isAnimating = State(initialValue: !animate)
-    self._buttonsHeight = State(initialValue: .zero)
   }
 
   // MARK: Body
   public var body: some View {
-    ZStack {
-      GeometryReader { proxy in
-        ScrollView {
-          VStack(spacing: Constants.Spacings.xxlarge) {
-            OnBoardingHeaderView(
-              image: onBoarding.image,
-              title: onBoarding.title,
-              description: onBoarding.description,
-              animate: animate
-            )
-            .padding(.top, isBannerStyle ? -proxy.safeAreaInsets.top : Constants.Spacings.xlarge)
-            .offset(y: isAnimating ? 0 : 200)
+    GeometryReader { proxy in
+      ScrollView {
+        VStack(spacing: Constants.Spacings.xxlarge) {
+          OnBoardingHeaderView(
+            image: onBoarding.image,
+            title: onBoarding.title,
+            description: onBoarding.description,
+            animate: animate
+          )
+          .padding(.top, isBannerStyle ? -proxy.safeAreaInsets.top : Constants.Spacings.xlarge)
+          .offset(y: isAnimating ? 0 : 200)
 
-            OnBoardingFeaturesListView(
-              features: onBoarding.features,
-              animate: animate
-            )
-            .padding(.horizontal, Constants.Spacings.large)
-
-            Spacer()
-          }
-          .padding(.bottom, buttonsHeight)
+          OnBoardingFeaturesListView(
+            features: onBoarding.features,
+            animate: animate
+          )
+          .padding(.horizontal, Constants.Spacings.large)
+          .padding(.bottom, Constants.Spacings.medium)
         }
-        .scrollBounceBehavior(axes: .vertical)
       }
-      .frame(maxWidth: .infinity)
-
-      footer
-        .opacity(isAnimating ? 1 : 0)
+      .scrollBounceBehavior(axes: .vertical)
+      .safeAreaInset(edge: .bottom) {
+        footer
+          .opacity(isAnimating ? 1 : 0)
+      }
     }
+    .frame(maxWidth: .infinity)
     .onAppear {
       withAnimation(.easeInOut(duration: 0.8).delay(1.4)) {
         isAnimating = true
@@ -70,30 +65,24 @@ public struct OnBoardingView: View {
   }
 
   private var footer: some View {
-    VStack {
-      Spacer(minLength: 0)
-
-      VStack(spacing: Constants.Spacings.large) {
-        if let notice = onBoarding.notice {
-          OnBoardingNoticeView(
-            icon: notice.icon,
-            text: notice.text,
-            link: notice.link
-          )
-        }
-
-        OnBoardingButtonView(label: onBoarding.button, action: action)
+    VStack(spacing: Constants.Spacings.large) {
+      if let notice = onBoarding.notice {
+        OnBoardingNoticeView(
+          icon: notice.icon,
+          text: notice.text,
+          link: notice.link
+        )
       }
-      .padding(Constants.Spacings.large)
-      .background(
-        GeometryReader { proxy in
-          BlurView(style: .regular).onAppear {
-            buttonsHeight = proxy.size.height
-          }
-          .ignoresSafeArea()
-        }
-      )
+
+      OnBoardingButtonView(label: onBoarding.button, action: action)
     }
+    .padding(Constants.Spacings.large)
+    .background(
+      GeometryReader { proxy in
+        BlurView(style: .regular)
+          .ignoresSafeArea()
+      }
+    )
   }
 }
 
