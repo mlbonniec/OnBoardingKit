@@ -55,8 +55,6 @@ extension OnBoardingKit {
 }
 
 public protocol OnBoarding {
-  var id: String? { get }
-
   var image: ImageStyle? { get }
 
   var title: Text { get }
