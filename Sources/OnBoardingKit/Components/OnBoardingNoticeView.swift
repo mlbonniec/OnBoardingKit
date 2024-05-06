@@ -22,6 +22,7 @@ struct OnBoardingNoticeView: View {
         .frame(width: 32, height: 32)
         .clipped()
         .foregroundStyle(.tint)
+        .symbolRenderingMode(.hierarchical)
 
       text
         .foregroundStyle(.gray)
