@@ -33,6 +33,7 @@ struct OnBoardingHeaderView: View {
           .resizable()
           .aspectRatio(contentMode: .fit)
           .frame(width: 75, height: 75)
+          .foregroundStyle(.tint)
 
       case .banner(let banner, let ratio):
         Color.clear

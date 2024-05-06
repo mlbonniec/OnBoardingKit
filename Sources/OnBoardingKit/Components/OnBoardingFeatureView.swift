@@ -19,7 +19,6 @@ struct OnBoardingFeatureView: View {
         .aspectRatio(contentMode: .fit)
         .frame(width: 35, height: 35)
         .foregroundStyle(.tint)
-        .symbolRenderingMode(.hierarchical)
 
       VStack(alignment: .leading, spacing: 3) {
         label?
