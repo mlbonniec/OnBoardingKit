@@ -15,9 +15,9 @@ extension OnBoardingKit {
 
     public var label: Text?
 
-    public var description: Text
+    public var description: Text?
 
-    public init(image: Image? = nil, label: Text? = nil, description: Text) {
+    public init(image: Image? = nil, label: Text? = nil, description: Text?) {
       self.image = image
       self.label = label
       self.description = description

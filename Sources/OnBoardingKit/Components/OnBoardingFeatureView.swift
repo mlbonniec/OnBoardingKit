@@ -10,7 +10,7 @@ import SwiftUI
 struct OnBoardingFeatureView: View {
   var image: Image?
   var label: Text?
-  var description: Text
+  var description: Text?
 
   var body: some View {
     HStack(spacing: Constants.Spacings.small) {
@@ -24,7 +24,7 @@ struct OnBoardingFeatureView: View {
         label?
           .fontWeight(.semibold)
 
-        description
+        description?
           .foregroundStyle(.gray)
       }
       .font(.system(size: 16))
