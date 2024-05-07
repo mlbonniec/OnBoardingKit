@@ -39,7 +39,7 @@ public struct OnBoardingView: View {
             description: onBoarding.description,
             animate: animate
           )
-          .padding(.top, isBannerStyle ? 0 : proxy.safeAreaInsets.top)
+          .padding(.top, isBannerStyle ? 0 : max(proxy.safeAreaInsets.top, Constants.Spacings.xxlarge))
           .offset(y: isAnimating ? 0 : 200)
 
           OnBoardingFeaturesListView(
