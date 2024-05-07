@@ -50,7 +50,7 @@ extension OnBoardingKit {
   }
 
   public enum ImageStyle {
-    case icon(Image), banner(Image, CGFloat? = 1.1)
+    case appIcon, icon(Image), banner(Image, CGFloat? = 1.1)
   }
 }
 

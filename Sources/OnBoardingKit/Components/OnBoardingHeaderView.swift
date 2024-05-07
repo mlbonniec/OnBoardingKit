@@ -44,6 +44,14 @@ struct OnBoardingHeaderView: View {
               .scaledToFill()
           )
           .clipped()
+
+      case .appIcon:
+        Bundle.icon?
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+          .frame(width: 75, height: 75)
+          .clipShape(RoundedRectangle(cornerRadius: 75 * 2/9))
+
       case .none:
         EmptyView()
       }
