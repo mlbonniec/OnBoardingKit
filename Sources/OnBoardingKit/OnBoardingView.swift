@@ -39,7 +39,7 @@ public struct OnBoardingView: View {
             description: onBoarding.description,
             animate: animate
           )
-          .padding(.top, isBannerStyle ? -proxy.safeAreaInsets.top : Constants.Spacings.xlarge)
+          .padding(.top, isBannerStyle ? 0 : proxy.safeAreaInsets.top)
           .offset(y: isAnimating ? 0 : 200)
 
           OnBoardingFeaturesListView(
@@ -50,6 +50,7 @@ public struct OnBoardingView: View {
           .padding(.bottom, Constants.Spacings.medium)
         }
       }
+      .ignoresSafeArea(.all, edges: isBannerStyle ? [.top] : [])
       .scrollBounceBehavior(axes: .vertical)
       .safeAreaInset(edge: .bottom) {
         footer
