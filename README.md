@@ -1,5 +1,5 @@
 ![Cover](https://github.com/mlbonniec/OnBoardingKit/assets/29955402/db543528-b91e-4d28-ab30-e7a9e92272de)
-*These views are original Apple views, recreated using the library.*
+*All of these views are original Apple views, recreated using the library.*
 
 # OnBoardingKit
 
@@ -28,5 +28,5 @@ Text("Hello, World!")
 You can find the full documentation on the [wiki](https://github.com/mlbonniec/OnBoardingKit/wiki).
 
 # License
-This work is licensed under CC BY-SA 4.0.  
+This work is licensed under MIT.
 See [LICENSE](./LICENSE).
