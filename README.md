@@ -28,5 +28,9 @@ Text("Hello, World!")
 You can find the full documentation on the [wiki](https://github.com/mlbonniec/OnBoardingKit/wiki).
 
 # License
-This work is licensed under MIT.
-See [LICENSE](./LICENSE).
+This project is licensed under MIT.
+
+> [!IMPORTANT]
+> If you're using this project into yours, you **must** incluse the license and copyright notice
+
+See [LICENSE](./LICENSE) for more details.
