@@ -46,7 +46,7 @@ struct OnBoardingHeaderView: View {
           .clipped()
 
       case .appIcon:
-        Bundle.icon?
+        (Bundle.icon ?? Image(.template))
           .resizable()
           .aspectRatio(contentMode: .fit)
           .frame(width: 75, height: 75)
