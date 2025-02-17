@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Features List. Can be animated to add an item reveal animation with opacity and y translation.
+/// - Note: Once reduce motion is enabled on device, `y` translation will not be played, only the opacity transition will occurs.
 struct OnBoardingFeaturesListView: View {
   // MARK: Private Properties
   private let features: [OnBoarding.Feature]
@@ -24,6 +26,7 @@ struct OnBoardingFeaturesListView: View {
 
   // MARK: Reactive Properties
   @State private var isAnimating: [Bool]
+  @Environment(\.accessibilityReduceMotion) private var isMotionReduced: Bool
 
   // MARK: Body
   var body: some View {
@@ -35,7 +38,7 @@ struct OnBoardingFeaturesListView: View {
           description: feature.description
         )
         .opacity(isAnimating[index] ? 1 : 0)
-        .offset(y: isAnimating[index] ? 0 : 100)
+        .offset(y: isAnimating[index] || isMotionReduced ? 0 : 100)
         .onAppear {
           withAnimation(.easeInOut(duration: 0.8).delay(1.6 + Double(index) * 0.15)) {
             isAnimating[index] = true
@@ -46,11 +49,11 @@ struct OnBoardingFeaturesListView: View {
   }
 }
 
-#Preview("Non-animated Single list") {
+#Preview("Non-animated list") {
   OnBoardingFeaturesListView(
     features: Array(
       repeating: OnBoarding.Feature(
-        image: Image(systemName: "pencil"),
+        image: Image(systemName: "sparkles"),
         label: Text("Some label"),
         description: Text("Some description that's longer.")
       ),
@@ -61,12 +64,11 @@ struct OnBoardingFeaturesListView: View {
   .padding()
 }
 
-
-#Preview("Animated Single list") {
+#Preview("Animated list") {
   OnBoardingFeaturesListView(
     features: Array(
       repeating: OnBoarding.Feature(
-        image: Image(systemName: "pencil"),
+        image: Image(systemName: "sparkles"),
         label: Text("Some label"),
         description: Text("Some description that's longer.")
       ),
