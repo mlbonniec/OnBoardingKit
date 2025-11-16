@@ -53,7 +53,12 @@ extension OnBoardingKit {
   }
 
   public enum ImageStyle {
-    case appIcon, icon(Image), banner(Image, CGFloat? = 1.1)
+    @available(visionOS, unavailable)
+    case appIcon
+
+    case icon(Image)
+
+    case banner(Image, CGFloat? = 1.1)
   }
 }
 
