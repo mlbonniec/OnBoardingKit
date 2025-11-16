@@ -59,7 +59,7 @@ struct OnBoardingHeaderView: View {
       Group {
         title
           .font(.largeTitle)
-          .bold()
+          .fontWeight(.bold)
 
         description?
           .font(.callout)

@@ -13,12 +13,16 @@ struct OnBoardingButtonView: View {
   let action: () -> Void
   
   // MARK: Computed Properties
-  var controlSize: ControlSize {
+  private var controlSize: ControlSize {
     if #available(iOS 17.0, *) {
       return .extraLarge
     } else {
       return .large
     }
+  }
+
+  private var borderShape: ButtonBorderShape {
+    UIDevice.current.isVisionPro ? .capsule : .roundedRectangle(radius: 15)
   }
 
   // MARK: Body
@@ -29,7 +33,7 @@ struct OnBoardingButtonView: View {
     })
     .buttonStyle(.borderedProminent)
     .controlSize(controlSize)
-    .buttonBorderShape(.roundedRectangle(radius: 15))
+    .buttonBorderShape(borderShape)
     .font(.system(size: 17, weight: .semibold))
   }
 }

@@ -87,7 +87,7 @@ public struct OnBoardingView: View {
   }
 }
 
-#Preview {
+#Preview(windowStyle: .automatic) {
   struct ScrollViewOnBoarding: OnBoarding {
     var image: ImageStyle? {
       .icon(Image(systemName: "app.fill"))
@@ -137,5 +137,8 @@ public struct OnBoardingView: View {
     }
   }
 
-  return OnBoardingView(ScrollViewOnBoarding()) {}
+  return Text("Hello")
+    .sheet(isPresented: .constant(true)) {
+      OnBoardingView(ScrollViewOnBoarding()) {}
+    }
 }
