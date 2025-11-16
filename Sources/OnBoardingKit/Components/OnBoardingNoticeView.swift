@@ -24,7 +24,7 @@ struct OnBoardingNoticeView: View {
         .foregroundStyle(.tint)
 
       text
-        .foregroundStyle(.gray)
+        .foregroundStyle(.secondary)
 
       if let link, let url = link.url {
         Link(destination: url) {

@@ -63,7 +63,7 @@ struct OnBoardingHeaderView: View {
 
         description?
           .font(.callout)
-          .foregroundStyle(.gray)
+          .foregroundStyle(.secondary)
       }
       .multilineTextAlignment(.center)
       .padding(.horizontal, Constants.Spacings.large)

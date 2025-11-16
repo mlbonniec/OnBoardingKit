@@ -23,10 +23,11 @@ struct OnBoardingFeatureView: View {
 
       VStack(alignment: .leading, spacing: 3) {
         label?
+          .foregroundStyle(.primary)
           .fontWeight(.semibold)
 
         description?
-          .foregroundStyle(.gray)
+          .foregroundStyle(.secondary)
       }
       .font(.system(size: 16))
       .lineSpacing(3)
