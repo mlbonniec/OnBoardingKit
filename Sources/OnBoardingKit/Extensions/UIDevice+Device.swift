@@ -10,6 +10,9 @@ import UIKit
 extension UIDevice {
   /// - Returns: `true` if the current device is an Apple Vision Pro
   var isVisionPro: Bool {
-    userInterfaceIdiom == .vision
+    if #available(iOS 17.0, *) {
+      return userInterfaceIdiom == .vision
+    }
+    return false
   }
 }

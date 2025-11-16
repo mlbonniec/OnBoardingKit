@@ -87,7 +87,7 @@ public struct OnBoardingView: View {
   }
 }
 
-#Preview(windowStyle: .automatic) {
+#Preview {
   struct ScrollViewOnBoarding: OnBoarding {
     var image: ImageStyle? {
       .icon(Image(systemName: "app.fill"))

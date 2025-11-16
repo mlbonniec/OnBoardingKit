@@ -50,7 +50,7 @@ struct OnBoardingFeaturesListView: View {
   }
 }
 
-#Preview("Non-animated list", windowStyle: .automatic) {
+#Preview("Non-animated list") {
   OnBoardingFeaturesListView(
     features: Array(
       repeating: OnBoarding.Feature(
@@ -65,7 +65,7 @@ struct OnBoardingFeaturesListView: View {
   .padding()
 }
 
-#Preview("Animated list", windowStyle: .automatic) {
+#Preview("Animated list") {
   OnBoardingFeaturesListView(
     features: Array(
       repeating: OnBoarding.Feature(
