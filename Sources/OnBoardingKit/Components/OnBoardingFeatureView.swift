@@ -11,9 +11,10 @@ struct OnBoardingFeatureView: View {
   var image: Image?
   var label: Text?
   var description: Text?
+  var alignment: VerticalAlignment
 
   var body: some View {
-    HStack(spacing: Constants.Spacings.small) {
+    HStack(alignment: alignment, spacing: Constants.Spacings.small) {
       image?
         .resizable()
         .aspectRatio(contentMode: .fit)
@@ -39,7 +40,8 @@ struct OnBoardingFeatureView: View {
 
 #Preview("Description Only") {
   OnBoardingFeatureView(
-    description: Text("Suggestions only appear if you write about them or save them to your journal.")
+    description: Text("Suggestions only appear if you write about them or save them to your journal."),
+    alignment: .center
   )
   .padding()
 }
@@ -47,7 +49,8 @@ struct OnBoardingFeatureView: View {
 #Preview("Image + Description") {
   OnBoardingFeatureView(
     image: Image(systemName: "lightbulb.max.fill"),
-    description: Text("Suggestions only appear if you write about them or save them to your journal.")
+    description: Text("Suggestions only appear if you write about them or save them to your journal."),
+    alignment: .center
   )
   .padding()
 }
@@ -56,7 +59,8 @@ struct OnBoardingFeatureView: View {
   OnBoardingFeatureView(
     image: Image(systemName: "lightbulb.max.fill"),
     label: Text("Suggestions Are Private"),
-    description: Text("Suggestions only appear if you write about them or save them to your journal.")
+    description: Text("Suggestions only appear if you write about them or save them to your journal."),
+    alignment: .center
   )
   .padding()
 }

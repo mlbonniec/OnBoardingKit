@@ -35,7 +35,8 @@ struct OnBoardingFeaturesListView: View {
         OnBoardingFeatureView(
           image: feature.image,
           label: feature.label,
-          description: feature.description
+          description: feature.description,
+          alignment: feature.alignment
         )
         .opacity(isAnimating[index] ? 1 : 0)
         .offset(y: isAnimating[index] || isMotionReduced ? 0 : 100)
@@ -49,7 +50,7 @@ struct OnBoardingFeaturesListView: View {
   }
 }
 
-#Preview("Non-animated list") {
+#Preview("Non-animated list", windowStyle: .automatic) {
   OnBoardingFeaturesListView(
     features: Array(
       repeating: OnBoarding.Feature(
@@ -64,7 +65,7 @@ struct OnBoardingFeaturesListView: View {
   .padding()
 }
 
-#Preview("Animated list") {
+#Preview("Animated list", windowStyle: .automatic) {
   OnBoardingFeaturesListView(
     features: Array(
       repeating: OnBoarding.Feature(

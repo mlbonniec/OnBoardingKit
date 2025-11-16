@@ -106,17 +106,20 @@ public struct OnBoardingView: View {
         Feature(
           image: Image(systemName: "apple.logo"),
           label: Text("Apple Like"),
-          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc.")
+          description: Text("The design is inspired by the on boarding screens you can find on iMovie, Pages, Keynote etc."),
+          alignment: .top
         ),
         Feature(
           image: Image(systemName: "gear"),
           label: Text("Configurable"),
-          description: Text("Every element in the view can be configured. You can hide labels, text, images depending on your needs")
+          description: Text("Every element in the view can be configured. You can hide labels, text, images depending on your needs"),
+          alignment: .top
         ),
         Feature(
           image: Image(systemName: "lightbulb.fill"),
           label: Text("TipKit architecture like"),
-          description: Text("The project architecture is inspired by the Apple TipKit library.")
+          description: Text("The project architecture is inspired by the Apple TipKit library."),
+          alignment: .top
         )
       ]
     }

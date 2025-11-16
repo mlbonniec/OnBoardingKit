@@ -17,10 +17,13 @@ extension OnBoardingKit {
 
     public var description: Text?
 
-    public init(image: Image? = nil, label: Text? = nil, description: Text?) {
+    public var alignment: VerticalAlignment
+
+    public init(image: Image? = nil, label: Text? = nil, description: Text?, alignment: VerticalAlignment = .center) {
       self.image = image
       self.label = label
       self.description = description
+      self.alignment = alignment
     }
   }
 
