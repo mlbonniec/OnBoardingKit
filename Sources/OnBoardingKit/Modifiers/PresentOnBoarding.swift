@@ -53,9 +53,11 @@ public struct OnBoardingPresentation: ViewModifier {
         }
       }
       .onChange(of: hasBeenPresented) { _ in
-        if !hasBeenPresented {
-          isPresented = true
+        guard !hasBeenPresented else {
+          return
         }
+
+        isPresented = true
       }
   }
 }
