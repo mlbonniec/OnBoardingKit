@@ -79,10 +79,8 @@ public struct OnBoardingView: View {
     }
     .padding(Constants.Spacings.large)
     .background(
-      GeometryReader { proxy in
-        BlurView(style: .regular)
-          .ignoresSafeArea()
-      }
+      BlurView(style: .regular)
+        .ignoresSafeArea()
     )
   }
 }
